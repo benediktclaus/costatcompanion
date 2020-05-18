@@ -3,7 +3,6 @@
 # Pakete ------------------------------------------------------------------
 library(tidyverse)
 
-
 # t-Tests -----------------------------------------------------------------
 # Einstichproben-t-Test
 set.seed(20200422)
@@ -72,3 +71,22 @@ ice_cream <- crossing(flavor = as_factor(c("Vanilla", "Chocolate", "Cookie", "Ch
   rownames_to_column(var = "id")
 
 use_data(ice_cream, overwrite = TRUE)
+
+# ANOVA mit Messwiederholungen
+set.seed(20200518)
+runners <- tibble(
+  "bad" = rnorm(51, mean = 10, sd = 3),
+  "neutral" = rnorm(51, mean = 16, sd = 3),
+  "favorite" = rnorm(51, mean = 25, sd = 3)
+) %>%
+  rownames_to_column(var = "id") %>%
+  pivot_longer(
+    cols = -id,
+    names_to = "music_type",
+    values_to = "endurance"
+  ) %>%
+  mutate(endurance = round(endurance),
+         endurance = pmax(endurance, 0),
+         endurance = pmin(endurance, 30))
+
+use_data(runners, overwrite = TRUE)
