@@ -91,3 +91,28 @@ runners <- tibble(
          endurance = pmin(endurance, 30))
 
 use_data(runners, overwrite = TRUE)
+
+# Faktorielle ANOVA mit Messwiederholung
+set.seed(20200528)
+runners_motivation <- tibble(
+  "bad_no" = rnorm(51, mean = 10, sd = 3),
+  "neutral_no" = rnorm(51, mean = 11, sd = 3),
+  "favorite_no" = rnorm(51, mean = 12, sd = 3),
+  "bad_yes" = rnorm(51, mean = 10, sd = 3),
+  "neutral_yes" = rnorm(51, mean = 16, sd = 3),
+  "favorite_yes" = rnorm(51, mean = 25, sd = 3)
+) %>%
+  rownames_to_column(var = "id") %>%
+  pivot_longer(
+    cols = -id,
+    names_to = c("music_type", "motivation"),
+    names_sep = "_",
+    names_ptypes = list(music_type = factor(),
+                        motivation = factor()),
+    values_to = "endurance"
+  ) %>%
+  mutate(endurance = round(endurance),
+         endurance = pmax(endurance, 0),
+         endurance = pmin(endurance, 30))
+
+use_data(runners_motivation, overwrite = TRUE)

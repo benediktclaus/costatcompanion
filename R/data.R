@@ -101,3 +101,21 @@
 #'
 #' @source Fictional dataset.
 "runners"
+
+#' Perceived endurance of runners
+#'
+#' A dataset containing endurance ratings of 51 voluntary runners, running while
+#' listening to different types of music while motivated or not. This was used
+#' as an example dataset for a two-way repeated measures ANOVA.
+#'
+#' @format A data frame with 153 rows and 4 variables.
+#'
+#' \describe{
+#'   \item{id}{Participant's ID}
+#'   \item{music_type}{Type of music listened to}
+#'   \item{motivation}{Did the runner have motivation for that run?}
+#'   \item{endurance}{Participant's perceived endurance}
+#' }
+#'
+#' @source Fictional dataset.
+"runners_motivation"
