@@ -1,3 +1,23 @@
+#' Water Park Data
+#'
+#' A dataset containing different dependent variables measured on 100 different
+#' days in a random water park. This was used as an example for correlation
+#' analyses.
+#'
+#' @format A data frame with 100 rows and 5 variables.
+#'
+#' \describe{
+#'     \item{day_id}{A uniqe identifier of observed days}
+#'     \item{temperature}{Day's temperature}
+#'     \item{swimmers}{Day's swimmers/guests}
+#'     \item{sales}{Day's sales}
+#'     \item{beatings}{Observed beatings}
+#' }
+#'
+#' @source Fictional dataset
+#'
+"water_park"
+
 #' Intelligence ratings of Ravenclaw's
 #'
 #' A dataset containing intelligence ratings for 48 members of the Hogwarts
