@@ -13,6 +13,9 @@ A data frame with 435 rows and 3 variables
     \item{accuracy}{Participant's accuracy in percent with 100 indicating that no mistakes were made}
 }
 }
+\source{
+Fictional dataset
+}
 \usage{
 typing
 }

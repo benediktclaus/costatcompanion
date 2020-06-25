@@ -32,6 +32,8 @@
 #'     \item{accuracy}{Participant's accuracy in percent with 100 indicating that no mistakes were made}
 #' }
 #'
+#' @source Fictional dataset
+#'
 "typing"
 
 #' Intelligence ratings of Ravenclaw's
