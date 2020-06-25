@@ -24,10 +24,11 @@
 #' type as fast as they can. This was used as an example for repeated measures
 #' correlation (rmcorr)
 #'
-#' @format A data frame with 435 rows and 3 variables
+#' @format A data frame with 435 rows and 4 variables
 #'
 #' \describe{
 #'     \item{id}{Participant's ID}
+#'     \item{trial}{Trial}
 #'     \item{speed}{Participant's typing speed in keystrokes per minute}
 #'     \item{accuracy}{Participant's accuracy in percent with 100 indicating that no mistakes were made}
 #' }

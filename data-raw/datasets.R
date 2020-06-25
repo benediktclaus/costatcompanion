@@ -50,9 +50,10 @@ typing <- tibble(
   ) %>%
   unnest(individual_data) %>%
   mutate(
-    accuracy = pmin(accuracy, 100)
+    accuracy = pmin(accuracy, 100),
+    trial = rep(1:5, times = 87)
   ) %>%
-  select(id, speed, accuracy)
+  select(id, trial, speed, accuracy)
 
 use_data(typing, overwrite = TRUE)
 
