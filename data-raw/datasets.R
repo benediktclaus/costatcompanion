@@ -18,6 +18,44 @@ water_park <- MASS::mvrnorm(100, mu = c(0,0,0,0), Sigma = matrix(c(1, 0.86, 0.79
 
 use_data(water_park, overwrite = TRUE)
 
+# Repeated Measures Correlation
+compute_rmcorr_data <- function(n = 5, mean_x = 0, mean_y = 0, correlation = -0.80, speed_scaling = 1) {
+  MASS::mvrnorm(
+    n = n,
+    mu = c(mean_x, mean_y),
+    Sigma = matrix(
+      c(1, correlation, correlation, 1),
+      nrow = 2,
+      dimnames = list(c("speed", "accuracy"))
+    ),
+    empirical = TRUE
+  ) %>%
+    as_tibble() %>%
+    mutate(speed = speed * speed_scaling)
+}
+
+set.seed(20200624)
+typing <- tibble(
+  x = runif(100, 5, 110),
+  y_fitted = x * 0.8 + 10,
+  errors = rnorm(100, sd = 5),
+  y = pmin(y_fitted + errors, 100)
+) %>%
+  select(x, y) %>%
+  filter(y > 25) %>%
+  rownames_to_column(var = "id") %>%
+  rowwise() %>%
+  mutate(
+    individual_data = list(compute_rmcorr_data(mean_x = x, mean_y = y, speed_scaling = 5))
+  ) %>%
+  unnest(individual_data) %>%
+  mutate(
+    accuracy = pmin(accuracy, 100)
+  ) %>%
+  select(id, speed, accuracy)
+
+use_data(typing, overwrite = TRUE)
+
 # t-Tests -----------------------------------------------------------------
 # Einstichproben-t-Test
 set.seed(20200422)

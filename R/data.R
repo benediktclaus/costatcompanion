@@ -18,6 +18,22 @@
 #'
 "water_park"
 
+#' Speed and Accuracy Data
+#'
+#' A dataset containing speed and accuracy data for 87 participants trying to
+#' type as fast as they can. This was used as an example for repeated measures
+#' correlation (rmcorr)
+#'
+#' @format A data frame with 435 rows and 3 variables
+#'
+#' \describe{
+#'     \item{id}{Participant's ID}
+#'     \item{speed}{Participant's typing speed in keystrokes per minute}
+#'     \item{accuracy}{Participant's accuracy in percent with 100 indicating that no mistakes were made}
+#' }
+#'
+"typing"
+
 #' Intelligence ratings of Ravenclaw's
 #'
 #' A dataset containing intelligence ratings for 48 members of the Hogwarts
