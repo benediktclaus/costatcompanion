@@ -8,9 +8,9 @@
 A data frame with 80 rows and 3 variables.
 
 \describe{
-  \item{id}{Participant's ID}
-  \item{house}{Participant's house}
-  \item{chivalry}{Participant's chivalry rating}
+  \item{\code{id}}{Participant's ID}
+  \item{\code{house}}{Participant's house}
+  \item{\code{chivalry}}{Participant's chivalry rating}
 }
 }
 \source{

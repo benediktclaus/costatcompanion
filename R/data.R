@@ -5,13 +5,13 @@
 #' analyses.
 #'
 #' @format A data frame with 100 rows and 5 variables.
-#'
+#
 #' \describe{
-#'     \item{day_id}{A uniqe identifier of observed days}
-#'     \item{temperature}{Day's temperature}
-#'     \item{swimmers}{Day's swimmers/guests}
-#'     \item{sales}{Day's sales}
-#'     \item{beatings}{Observed beatings}
+#'     \item{\code{day_id}}{A uniqe identifier of observed days}
+#'     \item{\code{temperature}}{Day's temperature}
+#'     \item{\code{swimmers}}{Day's swimmers/guests}
+#'     \item{\code{sales}}{Day's sales}
+#'     \item{\code{beatings}}{Observed beatings}
 #' }
 #'
 #' @source Fictional dataset
@@ -24,18 +24,48 @@
 #' type as fast as they can. This was used as an example for repeated measures
 #' correlation (rmcorr)
 #'
-#' @format A data frame with 435 rows and 4 variables
+#' @format A data frame with 435 rows and 4 variables.
 #'
 #' \describe{
-#'     \item{id}{Participant's ID}
-#'     \item{trial}{Trial}
-#'     \item{speed}{Participant's typing speed in keystrokes per minute}
-#'     \item{accuracy}{Participant's accuracy in percent with 100 indicating that no mistakes were made}
+#'     \item{\code{id}}{Participant's ID}
+#'     \item{\code{trial}}{Trial}
+#'     \item{\code{speed}}{Participant's typing speed in keystrokes per minute}
+#'     \item{\code{accuracy}}{Participant's accuracy in percent with 100 indicating that no mistakes were made}
 #' }
 #'
 #' @source Fictional dataset
 #'
 "typing"
+
+#' Placebo Amplification Data
+#'
+#' A dataset containing data from a randomized clinical trial sought to amplify
+#' the placebo effect of antidepressants for 43 participants. This was used as a
+#' real world example for repeated measures corrlation.
+#'
+#' @format A data frame with 172 rows and 13 variables.
+#' \describe{
+#'     \item{\code{id}}{Participant's age}
+#'     \item{\code{age}}{Age}
+#'     \item{\code{sex}}{Sex, a factor with two levels ("Female" or "Male")}
+#'     \item{\code{treatment}}{The randomly assigned treatment, a factor with two levels ("TAU" = treatment as usual or "EG" = experimental group)}
+#'     \item{\code{measurement}}{Number of measurement}
+#'     \item{\code{exp_size}}{Participant's expected size of the improvement due to the antidepressant}
+#'     \item{\code{exp_certain}}{Participant's expected certainty of an improvement due to the antidepressant}
+#'     \item{\code{exp_speed}}{Participant's expected speed of the improvement due to the antidepressant}
+#'     \item{\code{cgi_s}}{Clinical Global Impressions, severity score}
+#'     \item{\code{bdi}}{Beck's Depression Inventory score}
+#'     \item{\code{shaps}}{Snaith-Hamilton Pleasure Scale score}
+#'     \item{\code{who}}{WHO Well-Being Questionnaire score}
+#'     \item{\code{hamd}}{Hamilton Rating Scale for Depression score}
+#' }
+#'
+#' @source \href{https://www.karger.com/Article/Abstract/505855}{Claus, B. B., Scherbaum, N., & Bonnet, U. (2020).
+#' Effectiveness of an Adjunctive Psychotherapeutic Intervention Developed for Enhancing the Placebo Effect of
+#' Antidepressants Used within an Inpatient-Treatment Program of Major Depression: A Pragmatic Parallel-Group,
+#' Randomized Controlled Trial. Psychotherapy and Psychosomatics, 1-3. https://doi.org/10.1159/000505855}
+#'
+"placebo_amplification"
 
 #' Intelligence ratings of Ravenclaw's
 #'
@@ -45,8 +75,8 @@
 #' @format A data frame with 49 rows and 2 variables.
 #'
 #' \describe{
-#'     \item{id}{Participant's ID}
-#'     \item{intelligence}{Participant's
+#'     \item{\code{id}}{Participant's ID}
+#'     \item{\code{intelligence}}{Participant's
 #'   intelligence}
 #' }
 #'
@@ -64,9 +94,9 @@
 #' @format A data frame with 80 rows and 3 variables.
 #'
 #' \describe{
-#'   \item{id}{Participant's ID}
-#'   \item{house}{Participant's house}
-#'   \item{chivalry}{Participant's chivalry rating}
+#'   \item{\code{id}}{Participant's ID}
+#'   \item{\code{house}}{Participant's house}
+#'   \item{\code{chivalry}}{Participant's chivalry rating}
 #' }
 #'
 #' @source Fictional dataset.
@@ -81,9 +111,9 @@
 #' @format A data frame with 106 rows and 3 variables.
 #'
 #' \describe{
-#'   \item{id}{Participant's ID}
-#'   \item{measurement}{Time of measurement in relation to the school year}
-#'   \item{patience}{Participant's patience}
+#'   \item{\code{id}}{Participant's ID}
+#'   \item{\code{measurement}}{Time of measurement in relation to the school year}
+#'   \item{\code{patience}}{Participant's patience}
 #' }
 #'
 #' @source Fictional dataset.
@@ -98,9 +128,9 @@
 #' @format A data frame with 186 rows and 3 variables.
 #'
 #' \describe{
-#'   \item{id}{Participant's ID}
-#'   \item{backpack}{Participant's backpack}
-#'   \item{joy}{Participant's joy}
+#'   \item{\code{id}}{Participant's ID}
+#'   \item{\code{backpack}}{Participant's backpack}
+#'   \item{\code{joy}}{Participant's joy}
 #' }
 #'
 #' @source Fictional dataset.
@@ -115,10 +145,10 @@
 #' @format A data frame with 295 rows and 4 variables.
 #'
 #' \describe{
-#'   \item{id}{Participant's ID}
-#'   \item{flavor}{Ice cream flavor}
-#'   \item{sex}{Participant's sex}
-#'   \item{yumminess}{Ice cream's yumminess}
+#'   \item{\code{id}}{Participant's ID}
+#'   \item{\code{flavor}}{Ice cream flavor}
+#'   \item{\code{sex}}{Participant's sex}
+#'   \item{\code{yumminess}}{Ice cream's yumminess}
 #' }
 #'
 #' @source Fictional dataset.
@@ -133,9 +163,9 @@
 #' @format A data frame with 153 rows and 3 variables.
 #'
 #' \describe{
-#'   \item{id}{Participant's ID}
-#'   \item{music_type}{Type of music listened to}
-#'   \item{endurance}{Participant's perceived endurance}
+#'   \item{\code{id}}{Participant's ID}
+#'   \item{\code{music_type}}{Type of music listened to}
+#'   \item{\code{endurance}}{Participant's perceived endurance}
 #' }
 #'
 #' @source Fictional dataset.
@@ -150,10 +180,10 @@
 #' @format A data frame with 153 rows and 4 variables.
 #'
 #' \describe{
-#'   \item{id}{Participant's ID}
-#'   \item{music_type}{Type of music listened to}
-#'   \item{motivation}{Did the runner have motivation for that run?}
-#'   \item{endurance}{Participant's perceived endurance}
+#'   \item{\code{id}}{Participant's ID}
+#'   \item{\code{music_type}}{Type of music listened to}
+#'   \item{\code{motivation}}{Did the runner have motivation for that run?}
+#'   \item{\code{endurance}}{Participant's perceived endurance}
 #' }
 #'
 #' @source Fictional dataset.

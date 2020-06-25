@@ -8,8 +8,8 @@
 A data frame with 49 rows and 2 variables.
 
 \describe{
-    \item{id}{Participant's ID}
-    \item{intelligence}{Participant's
+    \item{\code{id}}{Participant's ID}
+    \item{\code{intelligence}}{Participant's
   intelligence}
 }
 }

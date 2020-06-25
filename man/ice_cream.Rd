@@ -8,10 +8,10 @@
 A data frame with 295 rows and 4 variables.
 
 \describe{
-  \item{id}{Participant's ID}
-  \item{flavor}{Ice cream flavor}
-  \item{sex}{Participant's sex}
-  \item{yumminess}{Ice cream's yumminess}
+  \item{\code{id}}{Participant's ID}
+  \item{\code{flavor}}{Ice cream flavor}
+  \item{\code{sex}}{Participant's sex}
+  \item{\code{yumminess}}{Ice cream's yumminess}
 }
 }
 \source{

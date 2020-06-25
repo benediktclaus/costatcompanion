@@ -8,10 +8,10 @@
 A data frame with 153 rows and 4 variables.
 
 \describe{
-  \item{id}{Participant's ID}
-  \item{music_type}{Type of music listened to}
-  \item{motivation}{Did the runner have motivation for that run?}
-  \item{endurance}{Participant's perceived endurance}
+  \item{\code{id}}{Participant's ID}
+  \item{\code{music_type}}{Type of music listened to}
+  \item{\code{motivation}}{Did the runner have motivation for that run?}
+  \item{\code{endurance}}{Participant's perceived endurance}
 }
 }
 \source{

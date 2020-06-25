@@ -6,13 +6,12 @@
 \title{Water Park Data}
 \format{
 A data frame with 100 rows and 5 variables.
-
 \describe{
-    \item{day_id}{A uniqe identifier of observed days}
-    \item{temperature}{Day's temperature}
-    \item{swimmers}{Day's swimmers/guests}
-    \item{sales}{Day's sales}
-    \item{beatings}{Observed beatings}
+    \item{\code{day_id}}{A uniqe identifier of observed days}
+    \item{\code{temperature}}{Day's temperature}
+    \item{\code{swimmers}}{Day's swimmers/guests}
+    \item{\code{sales}}{Day's sales}
+    \item{\code{beatings}}{Observed beatings}
 }
 }
 \source{
