@@ -1,8 +1,8 @@
 library(tidyverse)
 
-reproducibility_import <- read_rds("data-raw/Reproduceability Project Psychology.rds") %>% janitor::clean_names() %>% as_tibble()
-
-reproducibility_project <- reproducibility_import %>%
+reproducibility_project <- read_rds("data-raw/Reproduceability Project Psychology.rds") %>%
+  janitor::clean_names() %>%
+  as_tibble() %>%
   select(study_title_o, journal_o, first_author = x1st_author_o, senior_author_o,
          institution_prestige_1st_author_o, institution_prestige_senior_author_o,
          surprising_result_o, exciting_result_o,
@@ -11,7 +11,8 @@ reproducibility_project <- reproducibility_import %>%
   mutate(
     sig_original = if_else(pval_original <= 0.06, "Significant", "Not Significant"),
     sig_replication = if_else(pval_replication <= 0.05, "Significant", "Not Significant"),
-    across(c(sig_original, sig_replication), as_factor)
+    across(c(sig_original, sig_replication), as_factor),
+    across(everything(), stringi::stri_trans_general, "latin-ascii")
   )
 
 use_data(reproducibility_project, overwrite = TRUE)
