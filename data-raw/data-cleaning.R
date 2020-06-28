@@ -12,7 +12,7 @@ reproducibility_project <- read_rds("data-raw/Reproduceability Project Psycholog
     sig_original = if_else(pval_original <= 0.06, "Significant", "Not Significant"),
     sig_replication = if_else(pval_replication <= 0.05, "Significant", "Not Significant"),
     across(c(sig_original, sig_replication), as_factor),
-    across(everything(), stringi::stri_trans_general, "latin-ascii")
+    across(where(is.character), stringi::stri_trans_general, "latin-ascii")
   )
 
 use_data(reproducibility_project, overwrite = TRUE)
