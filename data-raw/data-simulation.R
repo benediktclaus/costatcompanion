@@ -1,5 +1,3 @@
-## code to prepare `DATASET` dataset goes here
-
 # Pakete ------------------------------------------------------------------
 library(tidyverse)
 
@@ -200,6 +198,7 @@ exam_stress <- tibble(
   ) %>%
   mutate(
     across(c(time, preparation), str_to_title),
+    across(c(time, preparation), as_factor),
     id = rep(1:96, each = 3)
   ) %>%
   relocate(id, preparation, time, stress)
