@@ -216,3 +216,21 @@
 #'
 #' @source \href{https://osf.io/ezcuj}{Open Science Framework repository of the original study.}
 "reproducibility_project"
+
+#' Exam Stress
+#'
+#' A dataset containing stress levels for 96 participants before, during and
+#' after an exam, split by whether they prepared or did not prepare for this
+#' exam. This was used as an example for a mixed ANOVA.
+#'
+#' @format A data frame containing 288 rows and 4 variables.
+#' \describe{
+#'     \item{\code{id}}{Participant's ID}
+#'     \item{\code{preparation}}{Factor indicating whether a student prepared for the exam or not}
+#'     \item{\code{time}}{Factor indicating time of stress measurement}
+#'     \item{\code{stress}}{Observed stress level on a scale vom 0 (lowest) to 50 (highest)}
+#' }
+#'
+#' @source Fictional dataset
+
+"exam_stress"

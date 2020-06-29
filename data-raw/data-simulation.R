@@ -175,3 +175,33 @@ runners_motivation <- tibble(
          endurance = pmin(endurance, 30))
 
 use_data(runners_motivation, overwrite = TRUE)
+
+# Mixed ANOVA
+set.seed(20200629)
+exam_stress <- tibble(
+  before_no = rnorm(48, mean = 35, sd = 4),
+  during_no = rnorm(48, mean = 47, sd = 4),
+  after_no = rnorm(48, mean = 39, sd = 4),
+  before_yes = rnorm(48, mean = 34, sd = 4),
+  during_yes = rnorm(48, mean = 20, sd = 4),
+  after_yes = rnorm(48, mean = 10, sd = 4)
+) %>%
+  mutate(
+    across(.fns = ~ round(., 0)),
+    across(.fns = ~ pmax(., 0)),
+    across(.fns = ~ pmin(., 50))
+  ) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = c("time", "preparation"),
+    names_sep = "_",
+    names_ptype = list(time = factor()),
+    values_to = "stress"
+  ) %>%
+  mutate(
+    across(c(time, preparation), str_to_title),
+    id = rep(1:96, each = 3)
+  ) %>%
+  relocate(id, preparation, time, stress)
+
+use_data(exam_stress, overwrite = TRUE)
