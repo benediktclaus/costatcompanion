@@ -55,10 +55,6 @@ typing <- tibble(
 
 use_data(typing, overwrite = TRUE)
 
-placebo_amplification <- read_rds("data-raw/placebo_amplification.rds") %>%
-  mutate(id = as.character(id))
-
-use_data(placebo_amplification, overwrite = TRUE)
 
 # t-Tests -----------------------------------------------------------------
 # Einstichproben-t-Test

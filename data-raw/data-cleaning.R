@@ -1,5 +1,6 @@
 library(tidyverse)
 
+# Reproducibility Project Psychology
 reproducibility_project <- read_rds("data-raw/Reproduceability Project Psychology.rds") %>%
   janitor::clean_names() %>%
   as_tibble() %>%
@@ -17,3 +18,10 @@ reproducibility_project <- read_rds("data-raw/Reproduceability Project Psycholog
   )
 
 use_data(reproducibility_project, overwrite = TRUE)
+
+# Placebo Amplification
+placebo_amplification <- read_rds("data-raw/placebo_amplification.rds") %>%
+  mutate(id = as.character(id),
+         measurement = as.numeric(measurement))
+
+use_data(placebo_amplification, overwrite = TRUE)
