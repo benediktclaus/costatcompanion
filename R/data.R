@@ -234,3 +234,34 @@
 #' @source Fictional dataset
 
 "exam_stress"
+
+#' Party Pleasure Data
+#'
+#' A dataset containing responses of 320 participants regarding their percieved
+#' pleasure at parties. This was used as an example for exploratory factor
+#' analysis (EFA). All responses were achieved via  a visual analogue scale
+#' (VAS) ranging from 0 (fully disagree) to 10 (fully agree).
+#'
+#' @format A data frame with 320 rows and 16 variables.
+#'
+#' \describe{
+#'     \item{\code{id}}{Participant's ID}
+#'     \item{\code{item_1}}{Participant's responses to repsective item}
+#'     \item{\code{item_2}}{Participant's responses to repsective item}
+#'     \item{\code{item_3}}{Participant's responses to repsective item}
+#'     \item{\code{item_4}}{Participant's responses to repsective item}
+#'     \item{\code{item_5}}{Participant's responses to repsective item}
+#'     \item{\code{item_6}}{Participant's responses to repsective item}
+#'     \item{\code{item_7}}{Participant's responses to repsective item}
+#'     \item{\code{item_8}}{Participant's responses to repsective item}
+#'     \item{\code{item_9}}{Participant's responses to repsective item}
+#'     \item{\code{item_10}}{Participant's responses to repsective item}
+#'     \item{\code{item_11}}{Participant's responses to repsective item}
+#'     \item{\code{item_12}}{Participant's responses to repsective item}
+#'     \item{\code{item_13}}{Participant's responses to repsective item}
+#'     \item{\code{item_14}}{Participant's responses to repsective item}
+#'     \item{\code{item_15}}{Participant's responses to repsective item}
+#' }
+#'
+#' @source Fictional dataset
+"party"
