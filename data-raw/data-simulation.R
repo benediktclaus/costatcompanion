@@ -228,3 +228,20 @@ party <- lavaan::simulateData(model = factor_model, model.type = "cfa", sample.n
   rownames_to_column(var = "id")
 
 use_data(party, overwrite = TRUE)
+
+
+# CFA
+set.seed(20200704)
+party_people <- lavaan::simulateData(model = factor_model, model.type = "cfa", sample.nobs = 442, ov.var = rep(1.5, times = 15)) %>%
+  as_tibble() %>%
+  mutate(across(everything(), ~ . + 5),
+         # across(everything(), round),
+         across(everything(), pmax, 0),
+         across(everything(), pmin, 10)
+  ) %>%
+  select(
+    num_range("item_", 1:15)
+  ) %>%
+  rownames_to_column(var = "id")
+
+use_data(party_people, overwrite = TRUE)
