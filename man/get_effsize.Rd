@@ -4,7 +4,15 @@
 \alias{get_effsize}
 \title{Compute Effect Sizes}
 \usage{
-get_effsize(data, grouping_factor, grouping_levels, variable, detailed = FALSE)
+get_effsize(
+  data,
+  grouping_factor,
+  grouping_levels,
+  variable,
+  paired = FALSE,
+  participant_id,
+  detailed = FALSE
+)
 }
 \arguments{
 \item{data}{Data frame}
@@ -16,8 +24,14 @@ levels for comparison}
 
 \item{variable}{Numeric, a dependent variable}
 
-\item{detailed}{Indicator, if \code{FALSE} (default) detailed statistics
-will be omitted}
+\item{paired}{Indicator, if \code{TRUE}, repeated measures effect sizes will
+be calculated}
+
+\item{participant_id}{A column in the data frame containing a participant
+identifier. This is needed only for repeated measures effect sizes}
+
+\item{detailed}{Indicator, if \code{FALSE} (default) detailed statistics will
+be omitted}
 }
 \value{
 A tibble

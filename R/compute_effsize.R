@@ -13,8 +13,7 @@
 #'
 #' @return A tibble
 #' @export
-#'
-compute_effsize <- function(data, grouping_factor, variable, detailed = FALSE) {
+compute_effsize <- function(data, grouping_factor, variable, paired = FALSE, participant_id, detailed = FALSE) {
   effectsizes <- NULL
   # possible pairwise comparisons
   comparisons <- data %>%

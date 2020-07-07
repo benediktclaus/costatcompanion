@@ -4,7 +4,14 @@
 \alias{compute_effsize}
 \title{Compute Pairwise Effect Sizes}
 \usage{
-compute_effsize(data, grouping_factor, variable, detailed = FALSE)
+compute_effsize(
+  data,
+  grouping_factor,
+  variable,
+  paired = FALSE,
+  participant_id,
+  detailed = FALSE
+)
 }
 \arguments{
 \item{data}{Data frame}
@@ -13,8 +20,14 @@ compute_effsize(data, grouping_factor, variable, detailed = FALSE)
 
 \item{variable}{Numeric, a dependent variable}
 
-\item{detailed}{Indicator, if \code{FALSE} (default) detailed statistics
-will be omitted}
+\item{paired}{Indicator, if \code{TRUE}, repeated measures effect sizes will
+be calculated}
+
+\item{participant_id}{A column in the data frame containing a participant
+identifier. This is needed only for repeated measures effect sizes}
+
+\item{detailed}{Indicator, if \code{FALSE} (default) detailed statistics will
+be omitted}
 }
 \value{
 A tibble
