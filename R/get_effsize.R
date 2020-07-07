@@ -60,7 +60,7 @@ get_effsize <- function(data, grouping_factor, grouping_levels, variable, paired
     s_pooled <- sqrt((sd_1^2 + sd_2^2) / 2)
     s_corrected <- sqrt(((n_1 - 1) * sd_1^2 + (n_2 - 1) * sd_2^2) / (n_1 + n_2 - 2))
     alpha <- n_1 + n_2 - 2
-    j <- gamma(alpha / 2) / (sqrt(alpha / 2) * gamma((alpha - 1) / 2))
+    j <- 1 - (3 / ((4 * alpha) - 1))
 
     # compute effect sizes
     cohens_d <- mean_diff / s_pooled
