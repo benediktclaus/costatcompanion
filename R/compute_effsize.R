@@ -14,6 +14,10 @@
 #' @return A tibble
 #' @export
 compute_effsize <- function(data, grouping_factor, variable, paired = FALSE, participant_id, detailed = FALSE) {
+  if (paired & missing(participant_id)) {
+    stop("For repeated measures effect sizes a variable containing the participant ID is needed.")
+  }
+
   effectsizes <- NULL
   # possible pairwise comparisons
   comparisons <- data %>%
@@ -21,7 +25,15 @@ compute_effsize <- function(data, grouping_factor, variable, paired = FALSE, par
 
   # compute effect sizes for each comparison
   comparisons %>%
-    map(~ get_effsize(data = {{ data }}, grouping_factor = {{ grouping_factor }}, grouping_levels = ., variable = {{ variable }}, detailed = detailed)) %>%
+    map(~ get_effsize(
+      data = {{ data }},
+      grouping_factor = {{ grouping_factor }},
+      grouping_levels = .,
+      variable = {{ variable }},
+      paired = paired,
+      participant_id = {{ participant_id }},
+      detailed = detailed
+    )) %>%
     as_tibble_col(column_name = "effectsizes") %>%
     unnest(effectsizes)
 }
