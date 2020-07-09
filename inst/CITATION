@@ -1,0 +1,13 @@
+citHeader("To cite costatcompanion in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "costatcompanion: The Companion for the Chamber of Statistics",
+  author   = "Benedikt B. Claus",
+  year     = 2020,
+  note     = "R package version 0.0.0.900",
+  url      = "https://benediktclaus.github.io/costat/",
+  textVersion = paste0(
+    "Claus, B. B. (2020). costatcompanion: The Companion for the Chamber of Statistics. https://benediktclaus.github.io/costat/"
+  )
+)

@@ -15,7 +15,7 @@ Depends:
 Imports: 
     tibble,
     rstatix,
-    dplyr,
+    dplyr (>= 1.0.0),
     purrr,
     tidyr,
     magrittr
