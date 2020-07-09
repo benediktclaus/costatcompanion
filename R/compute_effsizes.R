@@ -52,6 +52,10 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
   var_g_star <- j^2 * var_g
   se_g_star <- sqrt(var_g_star)
 
+  # conversion to r
+  a <- (n_1 + n_2)^2 / (n_1 * n_2)
+  r <- g_star / sqrt(g_star^2 + a)
+
   # output
   if (detailed) {
     tibble(
@@ -70,7 +74,8 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
       "hedges_g" = hedges_g,
       "g_star" = g_star,
       "lower" = g_star - (1.9599 * var_g_star),
-      "upper" = g_star + (1.9599 * var_g_star)
+      "upper" = g_star + (1.9599 * var_g_star),
+      "r" = r
     )
   } else {
     tibble(
@@ -81,7 +86,8 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
       "hedges_g" = hedges_g,
       "g_star" = g_star,
       "lower" = g_star - (1.9599 * var_g_star),
-      "upper" = g_star + (1.9599 * var_g_star)
+      "upper" = g_star + (1.9599 * var_g_star),
+      "r" = r
     )
   }
 }
@@ -146,6 +152,9 @@ effsize_repeated <- function(data, grouping_factor, grouping_levels, variable, d
   var_g_star <- j^2 * var_g
   se_g_star <- sqrt(var_g_star)
 
+  # conversion to r
+  r <- g_star / sqrt(g_star^2 + 4)
+
   # output
   if (detailed) {
     tibble(
@@ -162,7 +171,8 @@ effsize_repeated <- function(data, grouping_factor, grouping_levels, variable, d
       "hedges_g" = hedges_g,
       "g_star" = g_star,
       "lower" = g_star - (1.95996 * var_g_star),
-      "upper" = g_star + (1.95996 * var_g_star)
+      "upper" = g_star + (1.95996 * var_g_star),
+      "r" = r
     )
   } else {
     tibble(
@@ -172,7 +182,8 @@ effsize_repeated <- function(data, grouping_factor, grouping_levels, variable, d
       "hedges_g" = hedges_g,
       "g_star" = g_star,
       "lower" = g_star - (1.95996 * var_g_star),
-      "upper" = g_star + (1.95996 * var_g_star)
+      "upper" = g_star + (1.95996 * var_g_star),
+      "r" = r
     )
   }
 }

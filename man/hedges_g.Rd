@@ -13,7 +13,8 @@ hedges_g(data, grouping_factor, variable, paired = FALSE, detailed = FALSE)
 
 \item{variable}{Numeric, the dependent variable}
 
-\item{paired}{Indicator, if repeated measures effect sizes should be used.}
+\item{paired}{Indicator, if repeated measures effect sizes should be used.
+Default is \code{FALSE}.}
 
 \item{detailed}{Indicator, if detailed information (such as means, standard
 deviations, etc.) should be returned. Default ist \code{FALSE}}
@@ -24,4 +25,7 @@ A tibble
 \description{
 This function computes pairwise independent effect sizes (Hedges' \eqn{g} and
 \eqn{g*}) for a continuous variable based on a grouping variable.
+}
+\examples{
+hedges_g(data = phantasialand, grouping_factor = backpack, variable = joy)
 }

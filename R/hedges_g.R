@@ -60,9 +60,13 @@ compute_hedges_g <- function(data, grouping_factor, variable, paired = FALSE, de
 #'
 #' @inheritParams effsize_independent
 #' @param paired Indicator, if repeated measures effect sizes should be used.
+#'   Default is \code{FALSE}.
 #'
 #' @return A tibble
 #' @export
+#'
+#' @examples
+#' hedges_g(data = phantasialand, grouping_factor = backpack, variable = joy)
 hedges_g <- function(data, grouping_factor, variable, paired = FALSE, detailed = FALSE) {
   if (!is.factor(pull({{ data }}, {{ grouping_factor }}))) {
     stop("The grouping variable must be a factor.")
