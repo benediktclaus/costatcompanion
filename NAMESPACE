@@ -2,6 +2,10 @@
 
 export(hedges_g)
 export(mean_sd)
+export(median_se)
+export(mest_se)
+export(tr_mean_se)
+export(win_mean_se)
 importFrom(dplyr,filter)
 importFrom(dplyr,group_by)
 importFrom(dplyr,group_modify)
