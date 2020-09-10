@@ -6,6 +6,7 @@
 \usage{
 compute_hedges_g(
   data,
+  id = NULL,
   grouping_factor,
   variable,
   paired = FALSE,
@@ -14,6 +15,8 @@ compute_hedges_g(
 }
 \arguments{
 \item{data}{Data frame containing the data}
+
+\item{id}{Subject identifier}
 
 \item{grouping_factor}{Factor, used for the comparisons between groups}
 

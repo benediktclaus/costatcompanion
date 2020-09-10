@@ -73,8 +73,8 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
       "cohens_d" = cohens_d,
       "hedges_g" = hedges_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.9599 * var_g_star),
-      "upper" = g_star + (1.9599 * var_g_star),
+      "lower" = g_star - (1.9599 * se_g_star),
+      "upper" = g_star + (1.9599 * se_g_star),
       "r" = r
     )
   } else {
@@ -85,8 +85,8 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
       "n_2" = n_2,
       "hedges_g" = hedges_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.9599 * var_g_star),
-      "upper" = g_star + (1.9599 * var_g_star),
+      "lower" = g_star - (1.9599 * se_g_star),
+      "upper" = g_star + (1.9599 * se_g_star),
       "r" = r
     )
   }
@@ -96,26 +96,29 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
 #' Compute Effect Sizes for Repeated Measures
 #'
 #' @importFrom magrittr `%>%`
-#' @importFrom dplyr filter group_by
+#' @importFrom dplyr filter select group_by
 #' @importFrom rstatix get_summary_stats cor_test
-#' @importFrom purrr pluck
+#' @importFrom purrr pluck map_df
 #' @importFrom tibble tibble
 #' @importFrom tidyr pivot_wider
 #' @importFrom stats na.omit
 #'
 #' @inheritParams effsize_independent
+#' @param id Subject identifier
 #'
 #' @return A tibble
-effsize_repeated <- function(data, grouping_factor, grouping_levels, variable, detailed = FALSE) {
+effsize_repeated <- function(data, id, grouping_factor, grouping_levels, variable, detailed = FALSE) {
 
   # create complete paired data (without missings)
   paired_df <- data %>%
+    select({{ id }}, {{ grouping_factor }}, {{ variable }}) %>%
     filter({{ grouping_factor }} %in% {{ grouping_levels }}) %>%
     pivot_wider(
       names_from = {{ grouping_factor }},
       values_from = {{ variable }}
     ) %>%
-    na.omit()
+    na.omit() %>%
+    select(- {{ id }})
 
   # get descriptives
   descriptives_paired <- paired_df %>%
@@ -169,9 +172,11 @@ effsize_repeated <- function(data, grouping_factor, grouping_levels, variable, d
       "s_within" = s_within,
       "correlation" = correlation,
       "hedges_g" = hedges_g,
+      "hedges_g_lower" = hedges_g - (1.95996 * se_g),
+      "hedges_g_lower" = hedges_g + (1.95996 * se_g),
       "g_star" = g_star,
-      "lower" = g_star - (1.95996 * var_g_star),
-      "upper" = g_star + (1.95996 * var_g_star),
+      "lower" = g_star - (1.95996 * se_g_star),
+      "upper" = g_star + (1.95996 * se_g_star),
       "r" = r
     )
   } else {
@@ -181,8 +186,8 @@ effsize_repeated <- function(data, grouping_factor, grouping_levels, variable, d
       "n_pairs" = n,
       "hedges_g" = hedges_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.95996 * var_g_star),
-      "upper" = g_star + (1.95996 * var_g_star),
+      "lower" = g_star - (1.95996 * se_g_star),
+      "upper" = g_star + (1.95996 * se_g_star),
       "r" = r
     )
   }

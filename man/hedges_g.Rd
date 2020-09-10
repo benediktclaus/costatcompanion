@@ -4,10 +4,19 @@
 \alias{hedges_g}
 \title{Compute Effect Sizes for Pairwise Comparisons}
 \usage{
-hedges_g(data, grouping_factor, variable, paired = FALSE, detailed = FALSE)
+hedges_g(
+  data,
+  id = NULL,
+  grouping_factor,
+  variable,
+  paired = FALSE,
+  detailed = FALSE
+)
 }
 \arguments{
 \item{data}{Data frame containing the data}
+
+\item{id}{Subject identifier}
 
 \item{grouping_factor}{Factor, used for the comparisons between groups}
 

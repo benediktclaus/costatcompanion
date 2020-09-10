@@ -6,6 +6,7 @@
 \usage{
 effsize_repeated(
   data,
+  id,
   grouping_factor,
   grouping_levels,
   variable,
@@ -14,6 +15,8 @@ effsize_repeated(
 }
 \arguments{
 \item{data}{Data frame containing the data}
+
+\item{id}{Subject identifier}
 
 \item{grouping_factor}{Factor, used for the comparisons between groups}
 
