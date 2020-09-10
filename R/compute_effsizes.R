@@ -55,6 +55,8 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
   # conversion to r
   a <- (n_1 + n_2)^2 / (n_1 * n_2)
   r <- g_star / sqrt(g_star^2 + a)
+  var_r <- (a^2 * var_g_star) / ((g_star^2 + a)^3)
+  se_r <- sqrt(var_r)
 
   # output
   if (detailed) {
@@ -72,10 +74,17 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
       "s_corrected" = s_corrected,
       "cohens_d" = cohens_d,
       "hedges_g" = hedges_g,
+      "hedges_g_lower" = hedges_g - (1.9599 * var_g),
+      "hedges_g_upper" = hedges_g + (1.9599 * var_g),
+      "var_g" = var_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.9599 * se_g_star),
-      "upper" = g_star + (1.9599 * se_g_star),
-      "r" = r
+      "g_star_lower" = g_star - (1.9599 * se_g_star),
+      "g_star_upper" = g_star + (1.9599 * se_g_star),
+      "var_g_star" = var_g_star,
+      "r" = r,
+      "r_lower" = r - (1.9599 * se_r),
+      "r_upper" = r + (1.9599 * se_r),
+      "var_r" = var_r
     )
   } else {
     tibble(
@@ -85,9 +94,13 @@ effsize_independent <- function(data, grouping_factor, grouping_levels, variable
       "n_2" = n_2,
       "hedges_g" = hedges_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.9599 * se_g_star),
-      "upper" = g_star + (1.9599 * se_g_star),
-      "r" = r
+      "g_star_lower" = g_star - (1.9599 * se_g_star),
+      "g_star_upper" = g_star + (1.9599 * se_g_star),
+      "var_g_star" = var_g_star,
+      "r" = r,
+      "r_lower" = r - (1.9599 * se_r),
+      "r_upper" = r + (1.9599 * se_r),
+      "var_r" = var_r
     )
   }
 }
@@ -157,6 +170,8 @@ effsize_repeated <- function(data, id, grouping_factor, grouping_levels, variabl
 
   # conversion to r
   r <- g_star / sqrt(g_star^2 + 4)
+  var_r <- (4^2 * var_g_star) / ((g_star^2 + 4)^3)
+  se_r <- sqrt(var_r)
 
   # output
   if (detailed) {
@@ -172,12 +187,17 @@ effsize_repeated <- function(data, id, grouping_factor, grouping_levels, variabl
       "s_within" = s_within,
       "correlation" = correlation,
       "hedges_g" = hedges_g,
-      "hedges_g_lower" = hedges_g - (1.95996 * se_g),
-      "hedges_g_lower" = hedges_g + (1.95996 * se_g),
+      "hedges_g_lower" = hedges_g - (1.9599 * var_g),
+      "hedges_g_upper" = hedges_g + (1.9599 * var_g),
+      "var_g" = var_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.95996 * se_g_star),
-      "upper" = g_star + (1.95996 * se_g_star),
-      "r" = r
+      "g_star_lower" = g_star - (1.9599 * se_g_star),
+      "g_star_upper" = g_star + (1.9599 * se_g_star),
+      "var_g_star" = var_g_star,
+      "r" = r,
+      "r_lower" = r - (1.9599 * se_r),
+      "r_upper" = r + (1.9599 * se_r),
+      "var_r" = var_r
     )
   } else {
     tibble(
@@ -186,9 +206,13 @@ effsize_repeated <- function(data, id, grouping_factor, grouping_levels, variabl
       "n_pairs" = n,
       "hedges_g" = hedges_g,
       "g_star" = g_star,
-      "lower" = g_star - (1.95996 * se_g_star),
-      "upper" = g_star + (1.95996 * se_g_star),
-      "r" = r
+      "g_star_lower" = g_star - (1.9599 * se_g_star),
+      "g_star_upper" = g_star + (1.9599 * se_g_star),
+      "var_g_star" = var_g_star,
+      "r" = r,
+      "r_lower" = r - (1.9599 * se_r),
+      "r_upper" = r + (1.9599 * se_r),
+      "var_r" = var_r
     )
   }
 }
