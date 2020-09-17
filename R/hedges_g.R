@@ -17,8 +17,10 @@
 compute_hedges_g <- function(data, id = NULL, grouping_factor, variable, paired = FALSE, detailed = FALSE) {
 
     effectsizes <- NULL
-  # possible pairwise comparisons
+
+  # possible pairwise comparisons und used (!) levels
   comparisons <- data %>%
+    droplevels() %>%
     get_comparisons({{ grouping_factor }})
 
   if (!paired) {
